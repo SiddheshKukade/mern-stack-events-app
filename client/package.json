@@ -1,5 +1,5 @@
 {
-  "proxy": "https://5000-siddheshkuk-mernstackev-vbk0rgftfud.ws-us44.gitpod.io/api/todos",
+  "proxy": "https://5000-siddheshkuk-mernstackev-vbk0rgftfud.ws-us44.gitpod.io/",
   "name": "client",
   "version": "0.1.0",
   "private": true,
