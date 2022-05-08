@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import Input from './Input';
-import ListTodo from './ListTodo';
+import React, { Component } from "react";
+import axios from "axios";
+import Input from "./Input";
+import ListTodo from "./ListTodo";
 
 class Todo extends Component {
   state = {
@@ -14,7 +14,7 @@ class Todo extends Component {
 
   getTodos = () => {
     axios
-      .get('/api/todos')
+      .get("/api/todos")
       .then((res) => {
         if (res.data) {
           this.setState({
