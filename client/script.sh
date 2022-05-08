@@ -1,0 +1,1 @@
+ watch -n 5 npx prettier --write .

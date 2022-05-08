@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Input from "./Input";
 import ListTodo from "./ListTodo";
-
+import EventInput from "../Components/Event/EventInput";
 class Todo extends Component {
   state = {
     todos: [],
@@ -42,7 +42,7 @@ class Todo extends Component {
     return (
       <div>
         <h1>My Todo(s)</h1>
-        <Input getTodos={this.getTodos} />
+        <EventInput getTodos={this.getTodos} />
         <ListTodo todos={todos} deleteTodo={this.deleteTodo} />
       </div>
     );

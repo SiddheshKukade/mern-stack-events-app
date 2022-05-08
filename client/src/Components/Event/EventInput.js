@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-const EventInput = () => {
+const EventInput = ({ getTodos }) => {
   const [action, setAction] = useState("");
   const addTodo = () => {
     const task = { action };
@@ -10,8 +10,8 @@ const EventInput = () => {
         .post("/api/todos", task)
         .then((res) => {
           if (res.data) {
-            this.props.getTodos();
-            this.setState({ action: "" });
+            getTodos();
+            setAction("");
           }
         })
         .catch((err) => console.log(err));
@@ -25,8 +25,10 @@ const EventInput = () => {
   };
   return (
     <div>
-      <input type="text" onChange={this.handleChange} value={action} />
-      <button onClick={this.addTodo}>add todo</button>
+      <input type="text" onChange={handleChange} value={action} />
+      <button onClick={addTodo}>add todo</button>
     </div>
   );
 };
+
+export default EventInput;
