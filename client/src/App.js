@@ -13,6 +13,8 @@ const App = () => {
         <title>Home - Events App </title>
       </Helmet>
       <Routes>
+
+
         <Route path="home" element={<Event />} />
         <Route
           path="404"
@@ -27,3 +29,4 @@ const App = () => {
 };
 
 export default App;
+

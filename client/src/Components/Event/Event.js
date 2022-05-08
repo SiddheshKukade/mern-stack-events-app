@@ -27,6 +27,7 @@ const Event = () => {
   }, []);
   return (
     <div>
+        <Count/>
       <h1>My Todo(s)</h1>
       <EventInput getTodos={() => getTodos()} />
       <EventList todos={todos} deleteTodo={(id)=>deleteTodos(id)} />
@@ -34,3 +35,31 @@ const Event = () => {
   );
 };
 export default Event;
+
+
+export  function Count() {
+    const [count, setCount] = useState(JSON.parse(window.localStorage.getItem('count')));
+  
+    useEffect(() => {
+      setCount(JSON.parse(window.localStorage.getItem('count')));
+    }, []);
+  
+    useEffect(() => {
+      window.localStorage.setItem('count', count);
+    }, [count]);
+  
+    const increaseCount = () => {
+      return setCount(count + 1);
+    }
+    const decreaseCount = () => {
+      return setCount(count - 1)
+    }
+  
+    return (
+      <div className="App">
+        <h1> Count {count} </h1>
+        <button onClick={increaseCount}>+</button>
+        <button onClick={decreaseCount}>-</button>
+      </div>
+    );
+  }
