@@ -15,7 +15,7 @@ class Input extends Component {
         .then((res) => {
           if (res.data) {
             this.props.getTodos();
-            this.setState({ action: '' });
+            this.setState({ action: '' } );
           }
         })
         .catch((err) => console.log(err));
