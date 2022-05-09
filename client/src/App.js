@@ -6,6 +6,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Event from "./Components/Event/Event";
 import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
+import EventInput from "./Components/Event/EventInput";
 const App = () => {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="homeEvent" element={<Event />} />
         <Route path="login" element={<Login />} />
         <Route path="create-an-account" element={<Signup />} />
+        <Route path="add-event" element={<EventInput />} />
         <Route
           path="404"
           element={<h1>The Page is not found on the app. You are lost :-)</h1>}

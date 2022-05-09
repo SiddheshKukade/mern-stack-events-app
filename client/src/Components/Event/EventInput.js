@@ -1,32 +1,41 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import styles from "./event.module.css";
+import { Navigate } from "react-router-dom";
+
 const EventInput = ({ getTodos }) => {
-  const [action, setAction] = useState("");
+  const [next, setNext] = useState(false);
+  const [Event, setEvent] = useState("");
   const addTodo = () => {
-    const task = { action };
-    if (task.action && task.action.length > 0) {
+    const formData = { name : Event };
+    if (formData.name && formData.name.length > 0) {
+
       axios
-        .post("/api/todos", task)
+        .post("/api/events/create", formData)
         .then((res) => {
-          if (res.data) {
-            getTodos();
-            setAction("");
-          }
+            setNext(true);
         })
         .catch((err) => console.log(err));
     } else {
       console.log("input field required");
     }
   };
-
   const handleChange = (e) => {
-    setAction(e.target.value);
+    setEvent(e.target.value);
   };
   return (
+
     <div>
-      <input type="text" onChange={handleChange} value={action} />
-      <button onClick={addTodo}>add todo</button>
+      {next ? <Navigate to="/home" replace /> : null}
+      <h2 className={styles.title}>Enter the name of the Event</h2>
+      <input
+        type="text"
+        onChange={handleChange}
+        value={Event}
+        placeholder="ex. Going to Party ! "
+      />
+      <button onClick={addTodo}>Add an Event</button>
     </div>
   );
 };

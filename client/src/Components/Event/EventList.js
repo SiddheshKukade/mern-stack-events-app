@@ -1,11 +1,11 @@
-const EventList = ({ todos, deleteTodo }) => {
+const EventList = ({ Event, deleteEvent }) => {
   return (
     <ul>
-      {todos && todos.length > 0 ? (
-        todos.map((todo) => {
+      {Event && Event.length > 0 ? (
+        Event.map((event) => {
           return (
-            <li key={todo._id} onClick={() => deleteTodo(todo._id)}>
-              {todo.action}
+            <li key={event._id} onClick={() => deleteEvent(event._id)}>
+              {event.name}
             </li>
           );
         })

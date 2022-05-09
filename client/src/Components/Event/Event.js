@@ -2,39 +2,70 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EventInput from "./EventInput";
 import EventList from "./EventList";
+import styles from "./event.module.css";
+import { Navigate } from "react-router-dom";
 
 const Event = () => {
-  const [todos, setTodos] = useState([]);
-  const getTodos = () => {
+  const [Event, setEvent] = useState([]);
+  const [next, setNext] = useState(false);
+  const getEvent = () => {
     axios
-      .get("/api/todos")
+      .get("/api/events/show")
       .then((res) => {
         if (res.data) {
-          setTodos(res.data);
+          setEvent(res.data);
         }
       })
       .catch((err) => console.log(err));
   };
-  const deleteTodos = (id) => {
-    axios.delete(`/api/todos/${id}`).then((res) => {
+  const deleteEvent = (id) => {
+    axios.delete(`/api/event/${id}`).then((res) => {
       if (res.data) {
-        getTodos();
+        getEvent();
       }
     });
   };
+  const addEvent = () => {
+    setNext(true);
+  };
   useEffect(() => {
-    getTodos();
+    getEvent();
   }, []);
   return (
     <div>
+      {next ? <Navigate to="/add-event" replace /> : null}
       {/* <Count />
-      <EventInput getTodos={() => getTodos()} /> */}
+      <EventInput getEvent={() => getEvent()} /> */}
       <h1 className={styles.title}>List of Event(s)</h1>
-      <EventList todos={todos} deleteTodo={(id) => deleteTodos(id)} />
+      <button className={styles.btn} onClick={addEvent}>
+        Add an Event
+      </button>
+      <EventList Event={Event} deleteTodo={(id) => deleteEvent(id)} />
     </div>
   );
 };
 export default Event;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export function Count() {
   const [count, setCount] = useState(
@@ -57,7 +88,6 @@ export function Count() {
   };
 
   return (
-    
     <div className="App">
       <h1> Count {count} </h1>
       <button onClick={increaseCount}>+</button>
