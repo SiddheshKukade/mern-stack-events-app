@@ -16,6 +16,7 @@ class Todo extends Component {
     axios
       .get("/api/todos")
       .then((res) => {
+        console.log("data is ",res.data)
         if (res.data) {
           this.setState({
             todos: res.data,
@@ -38,10 +39,11 @@ class Todo extends Component {
 
   render() {
     let { todos } = this.state;
+    console.log("data is tods ",todos)
 
     return (
       <div>
-        <h1>My Todo(s)</h1>
+        <h1> Not My Todo(s)</h1>
         <EventInput getTodos={this.getTodos} />
         <ListTodo todos={todos} deleteTodo={this.deleteTodo} />
       </div>
@@ -50,3 +52,4 @@ class Todo extends Component {
 }
 
 export default Todo;
+

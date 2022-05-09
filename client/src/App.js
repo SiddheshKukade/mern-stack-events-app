@@ -3,7 +3,6 @@ import "./App.css";
 import Todo from "./Components/Todo";
 import { Helmet } from "react-helmet";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Input from "./Components/Input";
 import Event from "./Components/Event/Event";
 const App = () => {
   return (
@@ -13,9 +12,8 @@ const App = () => {
         <title>Home - Events App </title>
       </Helmet>
       <Routes>
-
-
-        <Route path="home" element={<Event />} />
+        <Route path="home" element={<Todo />} />
+        <Route path="homeEvent" element={<Event />} />
         <Route
           path="404"
           element={<h1>The Page is not found on the app. You are lost :-)</h1>}
@@ -29,4 +27,3 @@ const App = () => {
 };
 
 export default App;
-
