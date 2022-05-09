@@ -36,24 +36,20 @@ UserSchema.pre("save", function (next) {
   const user = this;
 
   if (this.isModified("password") || this.isNew) {
- 
-        bcrypt.hash(user.password,10, function (hashError, hash) {
-          if (hashError) {
-            return next(hashError);
-          }
+    bcrypt.hash(user.password, 10, function (hashError, hash) {
+      if (hashError) {
+        return next(hashError);
+      }
 
-          user.password = hash;
-          next();
-        });
-      
+      user.password = hash;
+      next();
+    });
   } else {
     return next();
   }
 });
 
-
 // Create model for todo
 const UserModel = mongoose.model("User", UserSchema);
-
 
 module.exports = UserModel;

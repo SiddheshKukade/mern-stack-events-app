@@ -10,7 +10,7 @@ eventRouter.get("/show", (req, res, next) => {
 
 eventRouter.post("/create", (req, res, next) => {
   if (req.body) {
-    console.log(req.body)
+    console.log(req.body);
     Event.create(req.body)
       .then((data) => res.json(data))
       .catch(next);

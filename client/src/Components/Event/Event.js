@@ -27,9 +27,9 @@ const Event = () => {
   }, []);
   return (
     <div>
-      <Count />
-      <h1>My Todo(s)</h1>
-      <EventInput getTodos={() => getTodos()} />
+      {/* <Count />
+      <EventInput getTodos={() => getTodos()} /> */}
+      <h1 className={styles.title}>List of Event(s)</h1>
       <EventList todos={todos} deleteTodo={(id) => deleteTodos(id)} />
     </div>
   );
@@ -57,6 +57,7 @@ export function Count() {
   };
 
   return (
+    
     <div className="App">
       <h1> Count {count} </h1>
       <button onClick={increaseCount}>+</button>

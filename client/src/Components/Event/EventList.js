@@ -10,7 +10,7 @@ const EventList = ({ todos, deleteTodo }) => {
           );
         })
       ) : (
-        <li>No todo(s) left</li>
+        <li>Currently there are no Events available </li>
       )}
     </ul>
   );
