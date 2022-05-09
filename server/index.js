@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./routes/api");
 require("dotenv").config();
 const eventRouter = require("./routes/eventRoutes");
 const userRouter = require("./routes/userRouter");
@@ -31,7 +30,6 @@ app.use(bodyParser.json());
 
 app.use("/api/events", eventRouter);
 app.use("/api/users", userRouter);
-app.use("/api", routes);
 app.use((err, req, res, next) => {
   console.log(err);
   next();
