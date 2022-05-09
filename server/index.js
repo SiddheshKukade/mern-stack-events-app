@@ -6,7 +6,7 @@ const eventRouter = require("./routes/eventRoutes");
 const userRouter = require("./routes/userRouter");
 const app = express();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT ;
 
 // Connect to the database
 mongoose
