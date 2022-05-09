@@ -8,6 +8,8 @@ import { Navigate } from "react-router-dom";
 const Event = () => {
   const [Event, setEvent] = useState([]);
   const [next, setNext] = useState(false);
+  const [nextLogin, setNextLogin] = useState(false);
+  const [nextSignup, setNextSignup] = useState(false);
   const getEvent = () => {
     axios
       .get("/api/events/show")
@@ -34,13 +36,23 @@ const Event = () => {
   return (
     <div>
       {next ? <Navigate to="/add-event" replace /> : null}
+      {nextLogin ? <Navigate to="/login" replace /> : null}
+      {nextSignup ? <Navigate to="/create-an-account" replace /> : null}
       {/* <Count />
       <EventInput getEvent={() => getEvent()} /> */}
       <h1 className={styles.title}>List of Event(s)</h1>
       <button className={styles.btn} onClick={addEvent}>
         Add an Event
       </button>
+      <br/>
+      <button className={styles.btn}onClick={()=>setNextLogin(true)}>
+        Login
+      </button>
+      <button className={styles.btn} onClick={()=>setNextSignup(true)}>
+        Create Account
+      </button>
       <EventList Event={Event} deleteTodo={(id) => deleteEvent(id)} />
+      
     </div>
   );
 };

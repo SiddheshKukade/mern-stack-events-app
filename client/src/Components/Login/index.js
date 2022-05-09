@@ -12,7 +12,7 @@ const Login = () => {
     const formData = { username: username, password: password };
     if (username && password) {
       axios.post("/api/users/verify", formData).then((res) => {
-        console.log("response ot the signup" + res.data);
+        console.log("response ot the login" + res.data);
         if (res.data.sucess) {
           setNext(true);
         }

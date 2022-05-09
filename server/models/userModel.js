@@ -10,7 +10,7 @@ var validateEmail = function (email) {
 const UserSchema = new Schema({
   name: {
     type: String,
-    required: [true, "The todo text field is required"],
+    required: [true, "The Name is required"],
     trim: true,
   },
   email: {

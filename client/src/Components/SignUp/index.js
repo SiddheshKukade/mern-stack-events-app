@@ -1,16 +1,16 @@
 import React from "react";
 import styles from "./Signup.module.css";
 import { Helmet } from "react-helmet";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 const Signup = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState(''  );
+  const [password, setPassword] = useState(''  );
+  const [email, setEmail] = useState('' );
   const [next, setNext] = useState(false);
-
+ 
   // addTodo = () => {
   //     const task = { action: this.state.action };
 
@@ -29,13 +29,13 @@ const Signup = () => {
   //     }
   //   };
   const handleSubmit = () => {
-    const formData = { username: username, password: password, email: email };
+    const formData = { name: username, password: password, email: email };
     if (username && password && email) {
       axios
         .post("/api/users/create", formData)
         .then((res) => {
           console.log("response ot the signup" + res.data);
-          if (res.data.sucess) {
+          if (res.data) {
             setNext(true);
           }
         })
