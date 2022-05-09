@@ -8,13 +8,12 @@ const EventInput = ({ getTodos }) => {
   const [next, setNext] = useState(false);
   const [Event, setEvent] = useState("");
   const addTodo = () => {
-    const formData = { name : Event };
+    const formData = { name: Event };
     if (formData.name && formData.name.length > 0) {
-
       axios
         .post("/api/events/create", formData)
         .then((res) => {
-            setNext(true);
+          setNext(true);
         })
         .catch((err) => console.log(err));
     } else {
@@ -25,7 +24,6 @@ const EventInput = ({ getTodos }) => {
     setEvent(e.target.value);
   };
   return (
-
     <div>
       {next ? <Navigate to="/home" replace /> : null}
       <h2 className={styles.title}>Enter the name of the Event</h2>

@@ -1,16 +1,16 @@
 import React from "react";
 import styles from "./Signup.module.css";
 import { Helmet } from "react-helmet";
-import { useState , useEffect} from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 const Signup = () => {
-  const [username, setUsername] = useState(''  );
-  const [password, setPassword] = useState(''  );
-  const [email, setEmail] = useState('' );
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [next, setNext] = useState(false);
- 
+
   // addTodo = () => {
   //     const task = { action: this.state.action };
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import EventInput from "./EventInput";
 import EventList from "./EventList";
 import styles from "./event.module.css";
 import { Navigate } from "react-router-dom";
@@ -44,40 +43,18 @@ const Event = () => {
       <button className={styles.btn} onClick={addEvent}>
         Add an Event
       </button>
-      <br/>
-      <button className={styles.btn}onClick={()=>setNextLogin(true)}>
+      <br />
+      <button className={styles.btn} onClick={() => setNextLogin(true)}>
         Login
       </button>
-      <button className={styles.btn} onClick={()=>setNextSignup(true)}>
+      <button className={styles.btn} onClick={() => setNextSignup(true)}>
         Create Account
       </button>
       <EventList Event={Event} deleteTodo={(id) => deleteEvent(id)} />
-      
     </div>
   );
 };
 export default Event;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export function Count() {
   const [count, setCount] = useState(

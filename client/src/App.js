@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Todo from "./Components/Todo";
 import { Helmet } from "react-helmet";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Event from "./Components/Event/Event";
